@@ -1,3 +1,2 @@
 venv
-flaskr/__pycache__/*
-../flaskr/__pycache__/
+ordenCompra/flaskr/__pycache__
