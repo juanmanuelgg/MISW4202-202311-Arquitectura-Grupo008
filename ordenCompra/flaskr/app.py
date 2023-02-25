@@ -1,6 +1,6 @@
-from flaskr import create_app
+from . import create_app
 from .modelos import db, OrdenDeCompra
-from .vistas import VistaOrdenDeCompra
+from flaskr.vistas import VistaOrdenDeCompra
 from flask_restful import Api
 
 
