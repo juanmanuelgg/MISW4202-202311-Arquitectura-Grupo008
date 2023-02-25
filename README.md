@@ -25,3 +25,7 @@ pip install azure-storage-queue azure-identity
         # Display the message
         print("Message: " + peeked_message.content)
 ```
+
+###App serive azure
+![image](https://user-images.githubusercontent.com/60898371/221377028-e5304cad-1dcb-4ea8-a602-da14f8b3c131.png)
+
