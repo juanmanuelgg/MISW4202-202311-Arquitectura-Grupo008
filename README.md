@@ -6,3 +6,11 @@ Repositorio para el trabajo colaborativo del grupo 8 de curso ARQUITECTURAS ÁGI
 *pip install flask_sqlalchemy
 *pip install flask_restful 
 *pip install marshmallow_sqlalchemy
+
+
+Cola mensajeria - AZURE
+
+```
+az login
+pip install azure-storage-queue azure-identity
+```
