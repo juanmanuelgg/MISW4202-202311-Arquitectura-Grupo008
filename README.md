@@ -16,8 +16,10 @@ pip install psycop2
 
 
 ## Cola mensajeria - AZURE
+orden de compra: https://portal.azure.com/#@uniandes.onmicrosoft.com/resource/subscriptions/5489bab2-15cb-4e9b-95e1-e04f88d2ca5a/resourceGroups/appsvc_linux_centralus_basic/providers/Microsoft.Storage/storageAccounts/proyectocpp001/overview
 
-url :https://learn.microsoft.com/es-es/azure/storage/queues/storage-quickstart-queues-python?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-visual-studio-code#create-a-queue
+transporte: https://portal.azure.com/#@uniandes.onmicrosoft.com/resource/subscriptions/5489bab2-15cb-4e9b-95e1-e04f88d2ca5a/resourceGroups/appsvc_linux_centralus_basic/providers/Microsoft.Storage/storageAccounts/rutastransporteccp001/overview
+
 
 ```
 az login
