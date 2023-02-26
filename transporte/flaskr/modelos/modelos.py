@@ -12,7 +12,7 @@ class Transporte(db.Model):
    estado_pedido = db.Column(db.String)
    id_orden_compra = db.Column(db.Integer)  
    id_punto_venta = db.Column(db.Integer)  
-   id_ruta = db.Column(db.Integer)
+   orden = db.Column(db.Integer, autoincrement=True, nullable = True)
 
 class TransporteSchema(SQLAlchemyAutoSchema): 
     class Meta:

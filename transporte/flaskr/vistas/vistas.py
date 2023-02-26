@@ -21,23 +21,19 @@ class VistaTransporte(Resource):
         return [transporte_schema.dump(ca) for ca in Transporte.query.all()]
     
     def post(self):    
-        #Leer de la cola 
         queue_client_read = QueueClient(account_url_read, queue_name=queue_name_read ,credential=default_credential_read)
-        print("\nPeek at the messages in the queue...")
 
-        # Peek at messages in the queue
         peeked_messages = queue_client_read.peek_messages(max_messages=5)
         separador1 = ';';
         separador2 = ':';
+        orden_ruta = 0;
 
         for peeked_message in peeked_messages:
-            # Display the message
-            print("Message: " + peeked_message.content)
+            
             cadena = peeked_message.content
             if(separador1 in cadena):
+                orden_ruta += 1 
                 array_cadena = cadena.split(separador1)
-
-                print(array_cadena)
 
                 fecha = array_cadena[0]
                 id_orden_compra_aux = array_cadena[1].split(separador2)[1]
@@ -49,7 +45,7 @@ class VistaTransporte(Resource):
                     estado_pedido = estado_pedido_aux,
                     id_orden_compra = id_orden_compra_aux,
                     id_punto_venta = 1,
-                    id_ruta = 1
+                    orden = orden_ruta
                 )                                
                 db.session.add(nueva_ruta)        
             
@@ -61,4 +57,4 @@ class VistaTransporte(Resource):
             queue_client.send_message(message)  
             print("\nReceiving messages from the queue...")  
 
-        return transporte_schema.dump(nueva_ruta)
+        return [transporte_schema.dump(ca) for ca in Transporte.query.filter_by(id=nueva_ruta.id)]
