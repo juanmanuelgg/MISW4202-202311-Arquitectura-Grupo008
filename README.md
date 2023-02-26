@@ -10,6 +10,8 @@ Repositorio para el trabajo colaborativo del grupo 8 de curso ARQUITECTURAS ÁGI
 
 ## Cola mensajeria - AZURE
 
+url :https://learn.microsoft.com/es-es/azure/storage/queues/storage-quickstart-queues-python?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-visual-studio-code#create-a-queue
+
 ```
 az login
 pip install azure-storage-queue azure-identity
