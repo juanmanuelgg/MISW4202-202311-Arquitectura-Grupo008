@@ -1,3 +1,5 @@
+import uuid
+from click import UUID
 from flask_sqlalchemy import SQLAlchemy
 from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
 from marshmallow import fields
@@ -12,7 +14,8 @@ class Transporte(db.Model):
    estado_pedido = db.Column(db.String)
    id_orden_compra = db.Column(db.Integer)  
    id_punto_venta = db.Column(db.Integer)  
-   orden = db.Column(db.Integer, autoincrement=True, nullable = True)
+   orden = db.Column(db.Integer, autoincrement=True)
+   id_ruta = db.Column(db.String)
 
 class TransporteSchema(SQLAlchemyAutoSchema): 
     class Meta:

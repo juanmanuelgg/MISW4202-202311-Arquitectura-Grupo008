@@ -1,4 +1,5 @@
 
+import uuid
 from flask import request
 from ..modelos import db, Transporte, TransporteSchema
 from flask_restful import Resource
@@ -21,12 +22,13 @@ class VistaTransporte(Resource):
         return [transporte_schema.dump(ca) for ca in Transporte.query.all()]
     
     def post(self):    
-        queue_client_read = QueueClient(account_url_read, queue_name=queue_name_read ,credential=default_credential_read)
+        separador1 = ';'
+        separador2 = ':'
+        orden_ruta = 0
+        id_ruta_uuid = str(uuid.uuid4())
 
+        queue_client_read = QueueClient(account_url_read, queue_name=queue_name_read ,credential=default_credential_read)
         peeked_messages = queue_client_read.peek_messages(max_messages=5)
-        separador1 = ';';
-        separador2 = ':';
-        orden_ruta = 0;
 
         for peeked_message in peeked_messages:
             
@@ -45,7 +47,8 @@ class VistaTransporte(Resource):
                     estado_pedido = estado_pedido_aux,
                     id_orden_compra = id_orden_compra_aux,
                     id_punto_venta = 1,
-                    orden = orden_ruta
+                    orden = orden_ruta,
+                    id_ruta = id_ruta_uuid
                 )                                
                 db.session.add(nueva_ruta)        
             
@@ -57,4 +60,4 @@ class VistaTransporte(Resource):
             queue_client.send_message(message)  
             print("\nReceiving messages from the queue...")  
 
-        return [transporte_schema.dump(ca) for ca in Transporte.query.filter_by(id=nueva_ruta.id)]
+        return [transporte_schema.dump(ca) for ca in Transporte.query.filter_by(id_ruta=nueva_ruta.id_ruta)]
