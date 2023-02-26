@@ -30,7 +30,7 @@ class VistaOrdenDeCompra(Resource):
         if(nueva_orden):
             queue_client = QueueClient(account_url, queue_name=queue_name ,credential=default_credential)
             # res= queue_client.create_queue()            
-            message = str(datetime.utcnow()) + ";"  +"ordenCompraId:" +str(nueva_orden.id) +";"  + "estadoPedido:" + nueva_orden.estadoPedido  
+            message = "fechaOrden:" + datetime.utcnow().strftime('%m/%d/%Y') + ";"  +"IdOrdenCompra:" +str(nueva_orden.id) +";"  + "estado:" + nueva_orden.estadoPedido +";"  + "idPuntoVenta:" + str(nueva_orden.puntoVenta)
             queue_client.send_message(message)  
             print("\nReceiving messages from the queue...")  
 

@@ -5,8 +5,9 @@ from marshmallow import fields
 db = SQLAlchemy()
 
 class OrdenDeCompra(db.Model):
+   # __tablename__ = 'orden_compra'
    id= db.Column( db.Integer, primary_key = True) 
-   producto =db.Column( db.String)
+   producto = db.Column( db.String)
    cliente=db.Column( db.String)
    evidencia_fotografica=db.Column( db.String)
    rutaPedido=db.Column( db.String)
