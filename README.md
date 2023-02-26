@@ -3,10 +3,15 @@ Repositorio para el trabajo colaborativo del grupo 8 de curso ARQUITECTURAS ÁGI
 
 ## librerías
 ```
-pip install flask 
+pip install flask
 pip install flask_sqlalchemy
-pip install flask_restful 
+pip install flask_restful
 pip install marshmallow_sqlalchemy
+pip install azure-storage-queue azure-identity
+pip install celery
+pip install redis
+pip install requests
+pip install psycop2
 ```
 
 
