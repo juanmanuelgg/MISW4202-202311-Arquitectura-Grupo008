@@ -23,7 +23,7 @@ sudo certbot --nginx -d 'api.arquitecturaccp.com' -d 'www.api.arquitecturaccp.co
 sudo vim /etc/nginx/sites-available/default
 ```
 
-----------
+---
 
 ```nginx
 # /etc/nginx/sites-available/default
@@ -75,7 +75,7 @@ server {
 
 ```
 
-----------
+---
 
 ```bash
 sudo systemctl restart nginx
