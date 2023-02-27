@@ -1,12 +1,15 @@
 # Configuración de nginx como API-Gateway
 
 ## Máquina virtual utilizada
+
 ![VM-API-Gateway](./VM-API-Gateway.png)
 
 ## Configuracion de los DNS Records del dominio del experimento
+
 ![DNS-Records](./DNS-Records.png)
 
 ## Configuracion de nginx para redireccionar el trafico
+
 ```nginx
 server {
 
