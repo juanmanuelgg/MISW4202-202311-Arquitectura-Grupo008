@@ -15,6 +15,10 @@ def ordencompra(l):
     l.client.get("/ordencompra")
 
 
+def consultaruta(l):
+    l.client.get("/consultaruta")
+
+
 def ordencomprapost(l):
     l.client.post("/ordencompra", json={
         "cliente": "cliente 1",
@@ -28,8 +32,9 @@ def ordencomprapost(l):
 
 
 class UserTasks(TaskSet):
-    # tasks = [transporte, ordencompra]
-    tasks = [ordencomprapost]
+    # tasks = [transporte, ordencompra, consultaruta]
+    # tasks = [ordencomprapost]
+    tasks = [consultaruta]
 
 
 class WebsiteUser(HttpUser):
