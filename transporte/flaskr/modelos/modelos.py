@@ -7,7 +7,6 @@ from marshmallow import fields
 db = SQLAlchemy()
 
 class Transporte(db.Model):
-   #__tablename__ = 'transporte'
    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
    fecha_orden = db.Column(db.String)
    fecha_ruta = db.Column(db.String)
