@@ -13,20 +13,20 @@ class PuntoVenta(db.Model):
 class PuntoVentaShema(SQLAlchemy) :
     class Meta:
         model = PuntoVenta
-        include_relationships = True
+       # include_relationships = True
         load_instance = True
     
 class OrdenCompra(db.Model):
    # __tablename__ = 'OrdenCompra'
-   idOrdenCompra= db.Column( db.Integer, primary_key = True)
+   IdOrdenCompra= db.Column( db.Integer, primary_key = True)
    idPuntoVenta = db.Column( db.Integer)
-   EstadoPagado = db.Column( db.Boolean)
-   FechaOrden =db.Column( db.DateTime)
+   estado = db.Column( db.Boolean)
+   fechaOrden =db.Column( db.DateTime)
 
 class OrdenCompraShema(SQLAlchemy) :
     class Meta:
         model = OrdenCompra
-        include_relationships = True
+       # include_relationships = True
         load_instance = True
 
 class Transporte(db.Model):
@@ -42,7 +42,7 @@ class Transporte(db.Model):
 class TransporteShema(SQLAlchemy) :
     class Meta:
         model = Transporte
-        include_relationships = True
+       # include_relationships = True
         load_instance = True
 
 
