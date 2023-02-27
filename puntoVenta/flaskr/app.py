@@ -12,4 +12,4 @@ db.create_all()
    
 api = Api(app)
 api.add_resource(VistaConsultaRutas, '/consultaruta')
-api.add_resource(VistaEstadoOrdenCompra, '/estadoordencompra')
+api.add_resource(VistaEstadoOrdenCompra, '/estadoordencompra/<int:id_orden_compra>')
