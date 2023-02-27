@@ -7,6 +7,7 @@ from flask_restful import Resource
 from datetime import datetime
 from azure.identity import DefaultAzureCredential
 from azure.storage.queue import QueueServiceClient, QueueClient, QueueMessage
+import json
 
 account_url_transporte = "https://rutastransporteccp001.queue.core.windows.net/"
 queue_name_transporte ="rutastransporteccp001"
@@ -20,10 +21,33 @@ punto_venta_schema = PuntoVentaShema()
 orden_de_compra_schema = OrdenCompraShema()
 transporte_schema = TransporteShema()
 
+
+## cola orden de compra
+account_url_read= "https://proyectocpp001.queue.core.windows.net/"
+queue_name_read="proyectocpp001"
+default_credential_read="VdNWf4pM9SlkaV5tJt7M9nGM+tjto1ufdFJQStr55s8lssTzhNzdN9SDw+9AZRFKyHAYD86KHvBe+AStT7gJkg=="
+
+
 class VistaEstadoOrdenCompra(Resource):
-    def get(self):
-        queue_client_read = QueueClient(account_url_orden, queue_name=queue_name_orden ,credential=default_credential_orden)
-        return [orden_de_compra_schema.dump(eo) for eo in OrdenCompra.query.all()]
+    
+    
+    def get(self,id_orden_compra):
+    
+        queue_client_read = QueueClient(account_url_read, queue_name=queue_name_read ,credential=default_credential_read)
+        peeked_messages = queue_client_read.peek_messages(max_messages=5)       
+     
+        separador1 = ';'
+        separador2 = ':'
+        for peeked_message in peeked_messages:   
+            print('peeked_message',peeked_message.content)
+            esta= "IdOrdenCompra:"+str(id_orden_compra)  in peeked_message.content    
+            array_cadena = peeked_message.content.split(";")          
+            estado_pedido_aux = array_cadena[2].split(separador2)[1]   
+              
+            if(esta): 
+                string="{"+ str(peeked_message.content).replace(";",",")+"}"
+                print(string)
+                return {"estado":estado_pedido_aux}
 
 class VistaConsultaRutas(Resource):
     def get(self):
