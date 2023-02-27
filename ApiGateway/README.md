@@ -43,6 +43,14 @@ server {
         location /transporte {
             proxy_pass https://app-service-ccp-002.azurewebsites.net/transporte;
         }
+
+        #location /consultaruta/ {
+        #    proxy_pass https://app-service-ccp-003.azurewebsites.net/consultaruta;
+        #}
+
+        location /estadoordencompra {
+            proxy_pass https://app-service-cpp-003.azurewebsites.net/estadoordencompra:
+        }
         # First attempt to serve request as file, then
         # as directory, then fall back to displaying a 404.
         try_files $uri $uri/ =404;
