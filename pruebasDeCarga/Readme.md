@@ -15,6 +15,7 @@ source venv/bin/activate
 pip3 install -r requirements.txt
 # Ejecuta la prueba de carga
 locust
+# locust --users 10 --spawn-rate 1 -H http://your-server.com --locustfile
 
 # Desactivar el entorno (requiere: Activar el entorno)
 deactivate

@@ -1,13 +1,32 @@
 # Configuración de nginx como API-Gateway
 
 ## Máquina virtual utilizada
+
 ![VM-API-Gateway](./VM-API-Gateway.png)
 
 ## Configuracion de los DNS Records del dominio del experimento
+
 ![DNS-Records](./DNS-Records.png)
 
 ## Configuracion de nginx para redireccionar el trafico
+
+```bash
+# Instalar nginx y certbot
+sudo apt install nginx
+sudo snap install certbot --classic
+
+# 1) Es importante que el dominio a certificar apunte a la maquina que esta creando el certificado.
+# 2) El puerto 80 debe estar permitido por firewall
+# 3) Esta operacion es interactiva.
+sudo certbot --nginx -d 'api.arquitecturaccp.com' -d 'www.api.arquitecturaccp.com'
+
+sudo vim /etc/nginx/sites-available/default
+```
+
+----------
+
 ```nginx
+# /etc/nginx/sites-available/default
 server {
 
     root /var/www/html;
@@ -54,4 +73,10 @@ server {
     return 404; # managed by Certbot
 }
 
+```
+
+----------
+
+```bash
+sudo systemctl restart nginx
 ```
