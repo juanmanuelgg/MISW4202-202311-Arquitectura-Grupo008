@@ -10,12 +10,17 @@ app.use(bodyParser.json());
 
 app.post("/create-token", (req, res) => {
   const { user, password } = req.body;
-  const token = generateJWT({ user, password });
-  res.status(200).json({ token });
+
+  if (user !== "testuser" || password !== "1234567890")
+    return res.status(401).send("Usuario o clave incorrectos.");
+  else {
+    const token = generateJWT({ user });
+    return res.status(200).json({ token });
+  }
 });
 
 app.get("/validate", (req, res) => {
-  const ip_cliente = req.headers['x-forwarded-for'] || req.socket.remoteAddress 
+  const ip_cliente = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
 
   if (!req.headers.authorization)
     return res.status(401).json({ error: "No envió token." });
@@ -25,8 +30,8 @@ app.get("/validate", (req, res) => {
     return res.status(401).json({ error: "Formato de token invalido." });
 
   const payload = verifyJWT(token.slice("Bearer ".length));
-  if (payload) res.status(200).send(`Token valido (${ip_cliente}).`);
-  else res.status(401).send(`Token invalido (${ip_cliente}).`);
+  if (!payload) return res.status(401).send(`Token invalido (${ip_cliente}).`);
+  else return res.status(200).send(`Token valido (${ip_cliente}).`);
 });
 
 app.listen(PORT, () => {

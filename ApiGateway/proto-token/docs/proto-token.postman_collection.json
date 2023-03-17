@@ -35,6 +35,37 @@
 			"response": []
 		},
 		{
+			"name": "create-token remote-temp-test",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\": \"testuser\",\n    \"password\": \"1234567890\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://20.168.218.31:3000/create-token",
+					"protocol": "http",
+					"host": [
+						"20",
+						"168",
+						"218",
+						"31"
+					],
+					"port": "3000",
+					"path": [
+						"create-token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "validate",
 			"request": {
 				"auth": {
@@ -54,6 +85,38 @@
 					"protocol": "http",
 					"host": [
 						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"validate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "validate remote-temp-test",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsidXNlciI6InRlc3R1c2VyIn0sImlhdCI6MTY3OTAzNDE0MS44NjIsImV4cCI6MTY3OTAzNTA0MS44NjIsInR5cGUiOiJhY2Nlc3MifQ.xquotvuCIGxP0_X_jRgSrQZV8uCWC89b_A-e7ROj4-0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://20.168.218.31:3000/validate",
+					"protocol": "http",
+					"host": [
+						"20",
+						"168",
+						"218",
+						"31"
 					],
 					"port": "3000",
 					"path": [

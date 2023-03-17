@@ -11,9 +11,12 @@
 ## Configuracion de nginx para redireccionar el trafico
 
 ```bash
-# Instalar nginx y certbot
+# Instalar nginx, certbot y los otros paquetes necesarios
 sudo apt install nginx
+sudo apt install unzip
+sudo apt install net-tools
 sudo snap install certbot --classic
+sudo snap install node --classic
 
 # 1) Es importante que el dominio a certificar apunte a la maquina que esta creando el certificado.
 # 2) El puerto 80 debe estar permitido por firewall
