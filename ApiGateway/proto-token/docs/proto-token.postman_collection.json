@@ -1,0 +1,67 @@
+{
+	"info": {
+		"_postman_id": "7d56641a-4c9f-4dd8-9971-9b02f49e6815",
+		"name": "proto-token",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1543078"
+	},
+	"item": [
+		{
+			"name": "create-token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\": \"testuser\",\n    \"password\": \"1234567890\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/create-token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"create-token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "validate",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsidXNlciI6InRlc3R1c2VyIiwicGFzc3dvcmQiOiIxMjM0NTY3ODkwIn0sImlhdCI6MTY3OTAyODU1Ny43NTQsImV4cCI6MTY3OTAyOTQ1Ny43NTQsInR5cGUiOiJhY2Nlc3MifQ.3dO3RUthlGTfn9-tbQW0TtVM_-J2phBg3AvBEm-tc8M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/validate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"validate"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
