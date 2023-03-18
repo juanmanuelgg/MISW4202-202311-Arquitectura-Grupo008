@@ -1,0 +1,186 @@
+{
+	"info": {
+		"_postman_id": "7d56641a-4c9f-4dd8-9971-9b02f49e6815",
+		"name": "api-arquitecturaccp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1543078"
+	},
+	"item": [
+		{
+			"name": "create-token-dev",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\": \"testuser\",\n    \"password\": \"1234567890\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/create-token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"create-token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create-token-prod",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\": \"testuser\",\n    \"password\": \"1234567890\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.arquitecturaccp.com/create-token",
+					"protocol": "https",
+					"host": [
+						"api",
+						"arquitecturaccp",
+						"com"
+					],
+					"path": [
+						"create-token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "validate-dev",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsidXNlciI6InRlc3R1c2VyIiwicGFzc3dvcmQiOiIxMjM0NTY3ODkwIn0sImlhdCI6MTY3OTAyODU1Ny43NTQsImV4cCI6MTY3OTAyOTQ1Ny43NTQsInR5cGUiOiJhY2Nlc3MifQ.3dO3RUthlGTfn9-tbQW0TtVM_-J2phBg3AvBEm-tc8M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/validate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"validate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ordencompra-prod",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsidXNlciI6InRlc3R1c2VyIn0sImlhdCI6MTY3OTE0ODU4MC42MjQsImV4cCI6MTY3OTE0OTQ4MC42MjQsInR5cGUiOiJhY2Nlc3MifQ.399MRIVq2kt9jIu97-P9UHlcCc87rmyCMVEE3xqHJ5w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.arquitecturaccp.com/ordencompra",
+					"protocol": "https",
+					"host": [
+						"api",
+						"arquitecturaccp",
+						"com"
+					],
+					"path": [
+						"ordencompra"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transporte-prod",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsidXNlciI6InRlc3R1c2VyIn0sImlhdCI6MTY3OTE0ODU4MC42MjQsImV4cCI6MTY3OTE0OTQ4MC42MjQsInR5cGUiOiJhY2Nlc3MifQ.399MRIVq2kt9jIu97-P9UHlcCc87rmyCMVEE3xqHJ5w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.arquitecturaccp.com/transporte",
+					"protocol": "https",
+					"host": [
+						"api",
+						"arquitecturaccp",
+						"com"
+					],
+					"path": [
+						"transporte"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "estadoordencompra-prod",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsidXNlciI6InRlc3R1c2VyIn0sImlhdCI6MTY3OTE0ODU4MC42MjQsImV4cCI6MTY3OTE0OTQ4MC42MjQsInR5cGUiOiJhY2Nlc3MifQ.399MRIVq2kt9jIu97-P9UHlcCc87rmyCMVEE3xqHJ5w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.arquitecturaccp.com/estadoordencompra",
+					"protocol": "https",
+					"host": [
+						"api",
+						"arquitecturaccp",
+						"com"
+					],
+					"path": [
+						"estadoordencompra"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,29 @@
+{
+  "name": "proto-token",
+  "version": "1.0.0",
+  "description": "Un proyecto auxiliar que implementa un autenticador basico en node.",
+  "main": "src/index.mjs",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "build": "webpack",
+    "postbuild": "(echo '#!/usr/bin/env -S node' && cat dist/proto-token.cjs) > dist/proto-token-temp.cjs && mv dist/proto-token-temp.cjs dist/proto-token.cjs && chmod 744 dist/proto-token.cjs"
+  },
+  "keywords": [
+    "jwt",
+    "express"
+  ],
+  "author": "MISW4202-202311-Grupo008",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^11.0.0",
+    "webpack": "^5.76.2",
+    "webpack-cli": "^5.0.1"
+  }
+}
