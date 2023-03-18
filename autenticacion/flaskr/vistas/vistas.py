@@ -31,14 +31,6 @@ class VistaAutenticar(Resource):
 
     @jwt_required()
     def get(self):
-        try:
-            current_user = get_jwt_identity()
-            # claims = get_jwt_claims()
-            print('----token', current_user)
-            # print('----------payload', claims)
-            # continuar con la lógica del servicio
-            return {'message':'token valido', 'userid':current_user},200
-        except jwt.ExpiredSignatureError:
-            return {'message': 'token valido'}, 200
-        except jwt.InvalidTokenError:
-            return {'message': 'token invalido'}, 400
+        current_user = get_jwt_identity()
+        print('----token', current_user)
+        return {'message': 'token valido', 'userid': current_user}, 200
