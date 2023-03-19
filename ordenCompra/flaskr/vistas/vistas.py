@@ -21,11 +21,12 @@ class VistaOrdenDeCompra(Resource):
                                     rutaPedido=request.json["rutaPedido"],
                                     estadoPedido =request.json["estadoPedido"],
                                     puntoVenta=request.json["puntoVenta"],
-                                    precio=request.json["precio"]
+                                    precio=request.json["precio"],
+                                    vendedor_id=request.json["vendedor_id"]
                                     )
         db.session.add(nueva_orden)        
         db.session.commit()
-        print('nueva orden de compora----------ID',nueva_orden.id)
+        print('nueva orden de compra----------ID',nueva_orden.id)
                 
         if(nueva_orden):
             queue_client = QueueClient(account_url, queue_name=queue_name ,credential=default_credential)
