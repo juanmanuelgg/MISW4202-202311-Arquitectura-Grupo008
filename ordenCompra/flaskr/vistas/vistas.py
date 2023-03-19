@@ -21,11 +21,11 @@ class VistaOrdenDeCompra(Resource):
                                     estadoPedido =request.json["estadoPedido"],
                                     puntoVenta=request.json["puntoVenta"],
                                     precio=request.json["precio"],
-                                    vendedor_id = vendedor_id_get
+                                    vendedor_id=request.json["vendedor_id"]
                                     )
         db.session.add(nueva_orden)        
         db.session.commit()
-        print('nueva orden de compora----------ID',nueva_orden.id)
+        print('nueva orden de compra----------ID',nueva_orden.id)
                 
         return orden_compra_schema.dump(nueva_orden)
     
