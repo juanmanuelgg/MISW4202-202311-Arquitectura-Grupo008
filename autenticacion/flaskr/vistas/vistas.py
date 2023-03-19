@@ -26,11 +26,11 @@ class VistaAutenticar(Resource):
                    'rol': "vendedor"
                    }
         token = create_access_token(
-            identity=username, additional_claims=payload)
+            identity=1, additional_claims=payload)
         return jsonify(access_token=token)
 
     @jwt_required()
     def get(self):
-        current_user = get_jwt_identity()
-        print('----token', current_user)
-        return {'message': 'token valido', 'userid': current_user}, 200
+        current_user_id = get_jwt_identity()
+        print('----token', current_user_id)
+        return {'message': 'token valido', 'userid': current_user_id}, 200
