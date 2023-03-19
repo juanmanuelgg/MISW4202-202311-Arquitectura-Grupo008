@@ -30,12 +30,6 @@ sudo vim /etc/nginx/sites-available/default
 
 ```nginx
 # /etc/nginx/sites-available/default
-
-upstream prototoken {
-    server 127.0.0.1:3000;
-    keepalive 64;
-}
-
 server {
     root /var/www/html;
 
@@ -49,8 +43,8 @@ server {
         try_files $uri $uri/ =404;
     }
 
-    location /create-token {
-        proxy_pass http://prototoken/create-token;
+    location /autenticar {
+        proxy_pass https://app-serivce-ccp-004.azurewebsites.net/autenticar;
     }
 
     location /ordencompra {
@@ -75,7 +69,7 @@ server {
 
     location = /validate {
         internal;
-        proxy_pass              http://prototoken/validate;
+        proxy_pass              https://app-serivce-ccp-004.azurewebsites.net/autenticar;
         proxy_pass_request_body off;
         proxy_set_header        Content-Length "";
         proxy_set_header        X-Original-URI $request_uri;
@@ -105,7 +99,6 @@ server {
     server_name api.arquitecturaccp.com www.api.arquitecturaccp.com;
     return 404; # managed by Certbot
 }
-
 ```
 
 ---
