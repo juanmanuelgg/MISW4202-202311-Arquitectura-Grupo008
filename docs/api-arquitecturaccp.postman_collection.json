@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "7d56641a-4c9f-4dd8-9971-9b02f49e6815",
-		"name": "api-arquitecturaccp",
+		"name": "experimento-ccp",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "1543078"
 	},
@@ -41,7 +41,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"user\": \"testuser\",\n    \"password\": \"1234567890\"\n}",
+					"raw": "{\n    \"username\": \"test\",\n    \"password\": \"test\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -49,7 +49,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://api.arquitecturaccp.com/create-token",
+					"raw": "https://api.arquitecturaccp.com/autenticar",
 					"protocol": "https",
 					"host": [
 						"api",
@@ -57,7 +57,7 @@
 						"com"
 					],
 					"path": [
-						"create-token"
+						"autenticar"
 					]
 				}
 			},
@@ -100,7 +100,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsidXNlciI6InRlc3R1c2VyIn0sImlhdCI6MTY3OTE0ODU4MC42MjQsImV4cCI6MTY3OTE0OTQ4MC42MjQsInR5cGUiOiJhY2Nlc3MifQ.399MRIVq2kt9jIu97-P9UHlcCc87rmyCMVEE3xqHJ5w",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY3OTI2MjU2OSwianRpIjoiY2U3MzYxMjMtMGVjOC00NTU1LTk4M2UtMDQ3OGY1NWYzMjIyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3QiLCJuYmYiOjE2NzkyNjI1NjksImV4cCI6MTY3OTI2MzQ2OSwidXNlcl9pZCI6MSwiZmVjaGFFbWlzaW9uIjoiMTkvMDMvMjAyMyAyMTo0OSIsImZlY2hhRXhwaXJhY2lvbiI6IiIsInJvbCI6InZlbmRlZG9yIn0.2e-ZK2WYdqDzv4G2NiLqCPW3X8BOtror_Sx3ySpKg-o",
 							"type": "string"
 						}
 					]
@@ -130,7 +130,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsidXNlciI6InRlc3R1c2VyIn0sImlhdCI6MTY3OTE0ODU4MC42MjQsImV4cCI6MTY3OTE0OTQ4MC42MjQsInR5cGUiOiJhY2Nlc3MifQ.399MRIVq2kt9jIu97-P9UHlcCc87rmyCMVEE3xqHJ5w",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY3OTI2MjcwMiwianRpIjoiZTZiYmMxZjItOTNkNS00YTE5LWJmNmQtNjhjNWVhMjQzNDg3IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3QiLCJuYmYiOjE2NzkyNjI3MDIsImV4cCI6MTY3OTI2MzYwMiwidXNlcl9pZCI6MSwiZmVjaGFFbWlzaW9uIjoiMTkvMDMvMjAyMyAyMTo1MSIsImZlY2hhRXhwaXJhY2lvbiI6IiIsInJvbCI6InZlbmRlZG9yIn0.exqgMS8TY4weO33Nha9XY7PiJ5hZVEULlFRzVXTCcTM",
 							"type": "string"
 						}
 					]
@@ -160,7 +160,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsidXNlciI6InRlc3R1c2VyIn0sImlhdCI6MTY3OTE0ODU4MC42MjQsImV4cCI6MTY3OTE0OTQ4MC42MjQsInR5cGUiOiJhY2Nlc3MifQ.399MRIVq2kt9jIu97-P9UHlcCc87rmyCMVEE3xqHJ5w",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY3OTI2MjcwMiwianRpIjoiZTZiYmMxZjItOTNkNS00YTE5LWJmNmQtNjhjNWVhMjQzNDg3IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3QiLCJuYmYiOjE2NzkyNjI3MDIsImV4cCI6MTY3OTI2MzYwMiwidXNlcl9pZCI6MSwiZmVjaGFFbWlzaW9uIjoiMTkvMDMvMjAyMyAyMTo1MSIsImZlY2hhRXhwaXJhY2lvbiI6IiIsInJvbCI6InZlbmRlZG9yIn0.exqgMS8TY4weO33Nha9XY7PiJ5hZVEULlFRzVXTCcTM",
 							"type": "string"
 						}
 					]
@@ -168,7 +168,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://api.arquitecturaccp.com/estadoordencompra",
+					"raw": "https://api.arquitecturaccp.com/estadoordencompra/1",
 					"protocol": "https",
 					"host": [
 						"api",
@@ -176,7 +176,8 @@
 						"com"
 					],
 					"path": [
-						"estadoordencompra"
+						"estadoordencompra",
+						"1"
 					]
 				}
 			},
