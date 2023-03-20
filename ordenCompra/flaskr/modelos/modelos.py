@@ -14,7 +14,7 @@ class OrdenDeCompra(db.Model):
    estadoPedido=db.Column( db.String)
    puntoVenta=db.Column(db.Integer)
    precio=db.Column( db.String)  
-   vendedor_id=db.Column(db.Integer)
+   vendedor_id= db.Column(db.String)
 
    
 class OrdenDeCompraSchema(SQLAlchemyAutoSchema): 

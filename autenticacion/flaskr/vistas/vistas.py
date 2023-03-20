@@ -1,5 +1,5 @@
 
-from flask import request
+from flask import request, jsonify
 from ..modelos import db
 from flask_restful import Resource
 from flask import jsonify
@@ -8,13 +8,12 @@ from datetime import datetime
 
 secreto = 'frase-secreta'
 limite_de_intentos = 10
+lista_negra = dict()
+intentos_visitantes = dict()
 
 
 class VistaAutenticar(Resource):
-    # TODO: Recuperar estas estructuras de un archivo o una tabla
-    lista_negra = set()
-    intentos_visitante = dict()
-    
+
     @jwt_required(optional=True)
     def post(self):
         # 1. Obtener información del visitante
@@ -30,7 +29,7 @@ class VistaAutenticar(Resource):
         key_visitante = "{} {}".format(taken_from, visitor_ip)
 
         # 2. Verificar al visitante contra la lista negra.
-        if key_visitante in self.lista_negra:
+        if key_visitante in lista_negra:
             return ({"message": "Blacklisted."}), 401
 
         # 3. Proceder con el intento de autenticación y aumentar el contador de intentos si falla o reset si es exitoso.
@@ -38,18 +37,17 @@ class VistaAutenticar(Resource):
         username = request.json.get("username")
         password = request.json.get("password")
         if username != "test" or password != "test":
-            if key_visitante in self.intentos_visitante:
-                self.intentos_visitante[key_visitante] = self.intentos_visitante[key_visitante] + 1
+            if key_visitante in intentos_visitantes:
+                intentos_visitantes[key_visitante] = intentos_visitantes[key_visitante] + 1
             else:
-                self.intentos_visitante[key_visitante] = 1
+                intentos_visitantes[key_visitante] = 1
 
-            if self.intentos_visitante[key_visitante] >= limite_de_intentos:
-                self.lista_negra.add(key_visitante)
+            if intentos_visitantes[key_visitante] >= limite_de_intentos:
+                lista_negra[key_visitante]=''
             return ({"message": "Bad username or password"}), 401
-        else:
-            self.intentos_visitante[key_visitante] = 0
 
-        # 4. Generar el token de autenticación.
+        # 4. Reset intentos del visitante. Generar el token de autenticación.
+        intentos_visitantes[key_visitante] = 0
         fecha_actual = datetime.now()
         fecha_y_hora_en_texto = fecha_actual.strftime('%d/%m/%Y %H:%M')
 
@@ -67,3 +65,15 @@ class VistaAutenticar(Resource):
         current_user_id = get_jwt_identity()
         print('----token', current_user_id)
         return {'message': 'token valido', 'userid': current_user_id}, 200
+
+
+class VistaIntentos(Resource):
+    # @jwt_required()
+    def get(self):
+        return intentos_visitantes, 200
+
+
+class VistaLista(Resource):
+    # @jwt_required()
+    def get(self):
+        return lista_negra, 200

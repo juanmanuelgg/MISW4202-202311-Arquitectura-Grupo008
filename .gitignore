@@ -1,7 +1,9 @@
 venv
+node_modules
+__pycache__
+
 ordenCompra/flaskr/__pycache__
 pruebasDeCarga/__pycache__/locustfile.cpython-310.pyc
 
-ApiGateway/proto-token/dist
-ApiGateway/proto-token/node_modules
-ApiGateway/API-Gateway_key.pem
+apiGateway/proto-token/dist
+apiGateway/API-Gateway_key.pem

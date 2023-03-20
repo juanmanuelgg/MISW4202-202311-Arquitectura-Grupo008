@@ -14,10 +14,10 @@ def get_db_connection():
 
 def create_app(config_name):
     app = Flask(__name__)  
-    # conn = get_db_connection()
-    
+    # conn = get_db_connection()    
     db_url = "postgresql://ccpdbuser001:project-1234@ccp-postgresql.postgres.database.azure.com:5432/orden_compra"
     app.config['SQLALCHEMY_DATABASE_URI'] = db_url
     app.config['SQLALCHEMY_TACK_MODIFICATIONS'] = False
-    app.config["JWT_SECRET_KEY"] = "frase-secreta"
+    app.config['JWT_SECRET_KEY']='frase-secreta'
+    app.config['PROPAGATE_EXCEPTIONS'] = True
     return app
