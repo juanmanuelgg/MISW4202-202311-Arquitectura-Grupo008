@@ -19,13 +19,15 @@ class VistaAutenticar(Resource):
         # 1. Obtener información del visitante
         visitor_ip = ''
         taken_from = ''
-        if request.environ.get('HTTP_X_FORWARDED_FOR') is None:
-            visitor_ip = request.environ['REMOTE_ADDR']
-            taken_from = 'REMOTE_ADDR'
-        else:
-            # if behind a proxy
-            visitor_ip = request.environ['HTTP_X_FORWARDED_FOR']
-            taken_from = 'HTTP_X_FORWARDED_FOR'
+        visitor_ip = request.environ['REMOTE_ADDR']
+        taken_from = 'REMOTE_ADDR'
+        # if request.environ.get('HTTP_X_FORWARDED_FOR') is None:
+        #     visitor_ip = request.environ['REMOTE_ADDR']
+        #     taken_from = 'REMOTE_ADDR'
+        # else:
+        #     # if behind a proxy
+        #     visitor_ip = request.environ['HTTP_X_FORWARDED_FOR']
+        #     taken_from = 'HTTP_X_FORWARDED_FOR'
         key_visitante = "{} {}".format(taken_from, visitor_ip)
 
         # 2. Verificar al visitante contra la lista negra.

@@ -47,6 +47,14 @@ server {
         proxy_pass https://app-serivce-ccp-004.azurewebsites.net/autenticar;
     }
 
+    location /intentos_visitantes {
+        proxy_pass https://app-serivce-ccp-004.azurewebsites.net/intentos_visitantes;
+    }
+
+    location /blacklist {
+        proxy_pass https://app-serivce-ccp-004.azurewebsites.net/blacklist;
+    }
+
     location /ordencompra {
         auth_request /validate;
         proxy_pass https://app-service-cpp-001.azurewebsites.net/ordencompra;
