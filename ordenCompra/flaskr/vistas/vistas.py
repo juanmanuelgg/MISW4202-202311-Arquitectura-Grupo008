@@ -10,19 +10,20 @@ from flask_restful import Resource
 orden_compra_schema= OrdenDeCompraSchema()
 class VistaOrdenDeCompra(Resource):
     
+    
     def post(self):
-        nueva_orden = OrdenDeCompra(
         vendedor_id_get = get_jwt_identity()
 
+        nueva_orden = OrdenDeCompra(
             producto=request.json["producto"],
-                                    cliente=request.json["cliente"], 
-                                    evidencia_fotografica=request.json["evidencia_fotografica"],
-                                    rutaPedido=request.json["rutaPedido"],
-                                    estadoPedido =request.json["estadoPedido"],
-                                    puntoVenta=request.json["puntoVenta"],
-                                    precio=request.json["precio"],
-                                    vendedor_id=request.json["vendedor_id"]
-                                    )
+            cliente=request.json["cliente"], 
+            evidencia_fotografica=request.json["evidencia_fotografica"],
+            rutaPedido=request.json["rutaPedido"],
+            estadoPedido =request.json["estadoPedido"],
+            puntoVenta=request.json["puntoVenta"],
+            precio=request.json["precio"],
+            vendedor_id = vendedor_id_get
+            )
         db.session.add(nueva_orden)        
         db.session.commit()
         print('nueva orden de compra----------ID',nueva_orden.id)
