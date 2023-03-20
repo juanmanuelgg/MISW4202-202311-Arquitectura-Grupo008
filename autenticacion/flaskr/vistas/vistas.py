@@ -45,10 +45,9 @@ class VistaAutenticar(Resource):
             if self.intentos_visitante[key_visitante] >= limite_de_intentos:
                 self.lista_negra.add(key_visitante)
             return ({"message": "Bad username or password"}), 401
-        else:
-            self.intentos_visitante[key_visitante] = 0
 
-        # 4. Generar el token de autenticación.
+        # 4. Reset intentos del visitante. Generar el token de autenticación.
+        self.intentos_visitante[key_visitante] = 0
         fecha_actual = datetime.now()
         fecha_y_hora_en_texto = fecha_actual.strftime('%d/%m/%Y %H:%M')
 
