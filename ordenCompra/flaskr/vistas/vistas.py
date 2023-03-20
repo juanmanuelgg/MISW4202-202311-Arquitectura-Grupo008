@@ -10,7 +10,7 @@ from flask_restful import Resource
 orden_compra_schema= OrdenDeCompraSchema()
 class VistaOrdenDeCompra(Resource):
     
-    
+    @jwt_required(optional=True)
     def post(self):
         vendedor_id_get = get_jwt_identity()
 
@@ -30,8 +30,8 @@ class VistaOrdenDeCompra(Resource):
                 
         return orden_compra_schema.dump(nueva_orden)
     
-    def get(self, id_vendedor_get):
-        vendedor_id = get_jwt_identity()
-        if id_vendedor_get == vendedor_id:
-            return [orden_compra_schema.dump(ca) for ca in OrdenDeCompra.query.all.filter_by(vendedor_id = vendedor_id)]
+    @jwt_required(optional=True)
+    def get(self):
+        #id_vendedor_get = get_jwt_identity()
+        return [orden_compra_schema.dump(ca) for ca in OrdenDeCompra.query.all()]
         
