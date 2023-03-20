@@ -26,12 +26,11 @@ class VistaAutenticar(Resource):
             # if behind a proxy
             visitor_ip = request.environ['HTTP_X_FORWARDED_FOR']
             taken_from = 'HTTP_X_FORWARDED_FOR'
-
         key_visitante = "{} {}".format(taken_from, visitor_ip)
-        if key_visitante in self.lista_negra:
-            return ({"message": "Blacklisted."}), 401
 
         # 2. Verificar al visitante contra la lista negra.
+        if key_visitante in self.lista_negra:
+            return ({"message": "Blacklisted."}), 401
 
         # 3. Proceder con el intento de autenticación y aumentar el contador de intentos si falla o reset si es exitoso.
         # 3.1. Evaluar la cantidad de intentos fallidos y evaluar si entra a lista negra.
