@@ -14,7 +14,8 @@ class VistaAutenticar(Resource):
     # TODO: Recuperar estas estructuras de un archivo o una tabla
     lista_negra = set()
     intentos_visitante = dict()
-
+    
+    @jwt_required(optional=True)
     def post(self):
         # 1. Obtener información del visitante
         visitor_ip = ''
