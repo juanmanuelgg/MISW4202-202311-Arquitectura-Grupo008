@@ -1,19 +1,19 @@
 {
 	"info": {
 		"_postman_id": "7d56641a-4c9f-4dd8-9971-9b02f49e6815",
-		"name": "experimento-ccp",
+		"name": "api-arquitecturaccp",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "1543078"
 	},
 	"item": [
 		{
-			"name": "create-token-dev",
+			"name": "autenticar-dev",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"user\": \"testuser\",\n    \"password\": \"1234567890\"\n}",
+					"raw": "{\n    \"username\": \"test\",\n    \"password\": \"test\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -21,21 +21,21 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/create-token",
+					"raw": "http://localhost:5000/autenticar",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "5000",
 					"path": [
-						"create-token"
+						"autenticar"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "create-token-prod",
+			"name": "autenticar-prod",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -64,7 +64,36 @@
 			"response": []
 		},
 		{
-			"name": "validate-dev",
+			"name": "autenticar-dev",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY3OTI3OTk2NiwianRpIjoiNzRiMWFjM2UtZjg3MC00ZTE4LTllYzYtOTI0ZjFkYmQ1NzIyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNjc5Mjc5OTY2LCJleHAiOjE2NzkyODA4NjYsInVzZXJfaWQiOjEsImZlY2hhRW1pc2lvbiI6IjE5LzAzLzIwMjMgMjE6MzkiLCJmZWNoYUV4cGlyYWNpb24iOiIiLCJyb2wiOiJ2ZW5kZWRvciJ9.zDXY_LB6KaBeuaVqRs2WrYdjNJ54MXOgBPzUcKTArpw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/autenticar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"autenticar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "intentos_visitantes-dev",
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -79,14 +108,133 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/validate",
+					"raw": "http://localhost:5000/intentos_visitantes",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "5000",
 					"path": [
-						"validate"
+						"intentos_visitantes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "blacklist-dev",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY3OTI3OTk2NiwianRpIjoiNzRiMWFjM2UtZjg3MC00ZTE4LTllYzYtOTI0ZjFkYmQ1NzIyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNjc5Mjc5OTY2LCJleHAiOjE2NzkyODA4NjYsInVzZXJfaWQiOjEsImZlY2hhRW1pc2lvbiI6IjE5LzAzLzIwMjMgMjE6MzkiLCJmZWNoYUV4cGlyYWNpb24iOiIiLCJyb2wiOiJ2ZW5kZWRvciJ9.zDXY_LB6KaBeuaVqRs2WrYdjNJ54MXOgBPzUcKTArpw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/blacklist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"blacklist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "autenticar-prod",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsidXNlciI6InRlc3R1c2VyIiwicGFzc3dvcmQiOiIxMjM0NTY3ODkwIn0sImlhdCI6MTY3OTAyODU1Ny43NTQsImV4cCI6MTY3OTAyOTQ1Ny43NTQsInR5cGUiOiJhY2Nlc3MifQ.3dO3RUthlGTfn9-tbQW0TtVM_-J2phBg3AvBEm-tc8M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.arquitecturaccp.com/autenticar",
+					"protocol": "https",
+					"host": [
+						"api",
+						"arquitecturaccp",
+						"com"
+					],
+					"path": [
+						"autenticar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "intentos_visitantes-prod",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsidXNlciI6InRlc3R1c2VyIiwicGFzc3dvcmQiOiIxMjM0NTY3ODkwIn0sImlhdCI6MTY3OTAyODU1Ny43NTQsImV4cCI6MTY3OTAyOTQ1Ny43NTQsInR5cGUiOiJhY2Nlc3MifQ.3dO3RUthlGTfn9-tbQW0TtVM_-J2phBg3AvBEm-tc8M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.arquitecturaccp.com/intentos_visitantes",
+					"protocol": "https",
+					"host": [
+						"api",
+						"arquitecturaccp",
+						"com"
+					],
+					"path": [
+						"intentos_visitantes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "blacklist-prod",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY3OTI3OTk2NiwianRpIjoiNzRiMWFjM2UtZjg3MC00ZTE4LTllYzYtOTI0ZjFkYmQ1NzIyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNjc5Mjc5OTY2LCJleHAiOjE2NzkyODA4NjYsInVzZXJfaWQiOjEsImZlY2hhRW1pc2lvbiI6IjE5LzAzLzIwMjMgMjE6MzkiLCJmZWNoYUV4cGlyYWNpb24iOiIiLCJyb2wiOiJ2ZW5kZWRvciJ9.zDXY_LB6KaBeuaVqRs2WrYdjNJ54MXOgBPzUcKTArpw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.arquitecturaccp.com/blacklist",
+					"protocol": "https",
+					"host": [
+						"api",
+						"arquitecturaccp",
+						"com"
+					],
+					"path": [
+						"blacklist"
 					]
 				}
 			},
