@@ -9,7 +9,7 @@ Flask-Cors==6.0.0
 gevent==23.9.0
 geventhttpclient==2.0.8
 greenlet==2.0.2
-idna==3.4
+idna==3.7
 itsdangerous==2.1.2
 Jinja2==3.1.6
 locust==2.14.2
